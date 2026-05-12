@@ -19,9 +19,7 @@ Look for:
 - Duplicate transactions (same merchant, amount, and date)
 - Suspicious merchant names (ALL CAPS, crypto-related, urgency language)
 - Round number wire transfers
-- Statistical outliers
-
-After analysis, call the finalize tool with your findings.`,
+- Statistical outliers`,
     tools: {
       getTransactions: {
         description:
@@ -42,8 +40,7 @@ After analysis, call the finalize tool with your findings.`,
   console.log("[agent] starting simple anomaly detection");
 
   const { output } = await agent.generate({
-    prompt:
-      "Retrieve the transactions and analyze them for anomalies, then call finalize with your findings.",
+    prompt: "Retrieve the transactions and analyze them for anomalies.",
   });
 
   return output;

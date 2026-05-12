@@ -1,6 +1,6 @@
 import { start } from "workflow/api";
 
-import { findAnomaliesSandboxWorkflow } from "@/lib/workflow-agent";
+import { findAnomaliesSandboxWorkflow } from "@/lib/workflow-sandbox-agent";
 
 export const maxDuration = 60;
 
