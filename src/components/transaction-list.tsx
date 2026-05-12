@@ -7,7 +7,14 @@ import type { AnomalyResult } from "@/lib/anomaly";
 import { transactions } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-import { DetectButton } from "./detect-button";
+import { DetectButton, type DetectMode } from "./detect-button";
+
+const ENDPOINTS: Record<DetectMode, string> = {
+  tool: "/api/anomaly",
+  sandbox: "/api/anomaly/sandbox",
+  "workflow-tool": "/api/anomaly/workflow",
+  "workflow-sandbox": "/api/anomaly/workflow-sandbox",
+};
 
 export function TransactionList() {
   const [result, setResult] = useState<AnomalyResult | null>(null);
@@ -19,14 +26,14 @@ export function TransactionList() {
     result?.anomalies.map((a) => [a.transaction_id, a.reason]) ?? [],
   );
 
-  async function detectAnomalies(useSandbox: boolean) {
+  async function detectAnomalies(mode: DetectMode) {
     setLoading(true);
     setError(null);
     setResult(null);
     setExpandedId(null);
 
-    const endpoint = useSandbox ? "/api/anomaly/sandbox" : "/api/anomaly";
-    console.log(`[ui] detecting anomalies (sandbox: ${useSandbox})`);
+    const endpoint = ENDPOINTS[mode];
+    console.log(`[ui] detecting anomalies (mode: ${mode})`);
 
     try {
       const response = await fetch(endpoint, { method: "POST" });
