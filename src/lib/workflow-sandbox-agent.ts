@@ -60,7 +60,7 @@ After analysis, call the finalize tool with your findings.`,
 async function createSandboxStep(): Promise<string> {
   "use step";
   console.log("[workflow] createSandbox step");
-  const sandbox = await Sandbox.create({ timeout: 60_000 });
+  const sandbox = await Sandbox.create({ timeout: 180_000 });
   await sandbox.writeFiles([
     {
       path: "transactions.csv",

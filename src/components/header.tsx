@@ -8,7 +8,7 @@ export function Header() {
         AI agent that identifies suspicious transactions
       </p>
       <a
-        href="https://github.com/willsather/agent-starter"
+        href="https://github.com/JohnnyRacket/agent-starter"
         target="_blank"
         rel="noopener noreferrer"
         className="mt-3 inline-flex items-center gap-2 text-muted-foreground/60 text-sm transition-colors hover:text-muted-foreground"
