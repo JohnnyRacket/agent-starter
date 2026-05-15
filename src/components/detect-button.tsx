@@ -87,9 +87,10 @@ export function DetectButton({
           onClick={() => onDetect("tool")}
           disabled={loading || disabled}
           className={cn(
-            "inline-flex items-center gap-2 rounded-l-lg px-4 py-2 font-medium text-sm transition-colors",
-            "bg-primary text-primary-foreground hover:bg-primary/90",
+            "inline-flex items-center gap-2 rounded-l-lg px-4 py-2 font-medium text-sm transition-all duration-200",
+            "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg hover:shadow-red-500/50",
             "disabled:cursor-not-allowed disabled:opacity-50",
+            "animate-pulse hover:animate-none",
           )}
         >
           {loading ? (
